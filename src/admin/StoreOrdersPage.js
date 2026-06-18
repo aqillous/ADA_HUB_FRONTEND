@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { authFetch } from "../utils/AuthFetch";
 import DeleteModal from "../components/DeleteModal";
-import { ChevronDownIcon } from "@heroicons/react/24/outline";
+// import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import API_BASE_URL from "../config";
 
 export default function StoreOrdersDashboard() {
@@ -172,7 +172,7 @@ export default function StoreOrdersDashboard() {
                         }`}
                         onClick={(e) => handleStatusButtonClick(e, order.id)}
                       >
-                        {order.status} <ChevronDownIcon className="w-4 h-4" />
+                        {order.status}
                       </button>
                     </td>
 
