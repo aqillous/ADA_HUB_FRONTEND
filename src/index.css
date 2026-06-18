@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* Make sure html and body fill the screen */
+html,
+body,
+#root {
+  @apply h-full m-0;
+}
