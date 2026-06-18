@@ -58,52 +58,43 @@ function LoginPage({ setUser }) {
   };
 
   return (
-    <div className="mt-[-8px] min-h-screen w-full flex justify-center items-center bg-blue-300 overflow-hidden">
-      <div>
-        <div className="h-[390px] w-[550px] bg-white rounded-xl border-2 border-white">
-          <div>
-            <div className="flex justify-center mt-4 text-2xl">
-              <h2 className="font-lato font-bold flex justify-centermb-4">
-                Login
-              </h2>
-            </div>
-            <div className="flex justify-center text-gray-500 mt-1 text-sm">
-              <p>Enter your credentials to access your account</p>
-            </div>
+    <div className="mt-[-8px] min-h-screen w-full flex justify-center items-center bg-blue-300 overflow-hidden px-4">
+      <div className="w-full max-w-[550px]">
+        <div className="bg-white rounded-xl border-2 border-white py-8 px-6">
+          <div className="flex justify-center mt-4 text-2xl">
+            <h2 className="font-lato font-bold">Login</h2>
           </div>
-          <div className="flex justify-center items-center mt-6">
-            <div className="w-[450px]">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Email"
-                className={`h-14 w-full mt-6 p-2 rounded ${error ? "border-2 border-red-500 animate-shake" : "border border-gray-300"}`}
-              />
-              <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Password"
-                className={`h-14 w-full mt-6 p-2 rounded ${error ? "border-2 border-red-500 animate-shake_r" : "border border-gray-300"}`}
-              />
-              <button
-                onClick={handleLogin}
-                className="h-14 w-full bg-blue-500 text-white p-2 rounded mt-6"
-              >
-                Login
-              </button>
-              <p></p>
-            </div>
+          <div className="flex justify-center text-gray-500 mt-1 text-sm">
+            <p>Enter your credentials to access your account</p>
+          </div>
+          <div className="mt-6">
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Email"
+              className={`h-14 w-full mt-6 p-2 rounded ${error ? "border-2 border-red-500 animate-shake" : "border border-gray-300"}`}
+            />
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Password"
+              className={`h-14 w-full mt-6 p-2 rounded ${error ? "border-2 border-red-500 animate-shake_r" : "border border-gray-300"}`}
+            />
+            <button
+              onClick={handleLogin}
+              className="h-14 w-full bg-blue-500 text-white p-2 rounded mt-6"
+            >
+              Login
+            </button>
           </div>
         </div>
-        <div className="flex justify-center items-center">
-          <div className="mt-2">
-            You don't have account ?{" "}
-            <Link to="/register" className="text-blue-800">
-              Register
-            </Link>
-          </div>
+        <div className="flex justify-center items-center mt-2">
+          You don't have account?{" "}
+          <Link to="/register" className="text-blue-800 ml-1">
+            Register
+          </Link>
         </div>
       </div>
     </div>

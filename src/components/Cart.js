@@ -35,7 +35,7 @@ export default function Cart({ cartItems, addToCart, decreaseCart, setCart }) {
   };
 
   return (
-    <div className="fixed right-5 top-32 w-[350px] max-h-[80vh] overflow-y-auto bg-white rounded-xl shadow-xl p-5 transition-all duration-300">
+    <div className="fixed right-0 bottom-0 md:right-5 md:top-32 md:bottom-auto w-full md:w-[350px] max-h-[85vh] overflow-y-auto bg-white rounded-t-2xl md:rounded-xl shadow-xl p-5 z-40">
       <h2 className="font-bold text-xl mb-4">Your Cart</h2>
 
       {status === "loading" && (
