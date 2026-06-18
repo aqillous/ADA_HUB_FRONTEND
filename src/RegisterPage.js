@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import API_BASE_URL from "./config";
 
 function RegisterPage() {
   useEffect(() => {
@@ -36,7 +37,7 @@ function RegisterPage() {
         return;
       }
 
-      const response = await fetch("http://127.0.0.1:8000/register", {
+      const response = await fetch(`${API_BASE_URL}/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

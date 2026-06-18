@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { authFetch, logout } from "./utils/AuthFetch";
+import API_BASE_URL from "./config";
 
 const TABS = ["Profile", "Orders", "Security"];
 
@@ -36,7 +37,7 @@ export default function ProfileInfo({ setUser }) {
   const [pwError, setPwError] = useState("");
 
   useEffect(() => {
-    authFetch("http://localhost:8000/me")
+    authFetch(`${API_BASE_URL}/me`)
       .then((res) => res.json())
       .then((data) => setProfile(data));
   }, []);
@@ -44,7 +45,7 @@ export default function ProfileInfo({ setUser }) {
   useEffect(() => {
     if (activeTab !== "Orders") return;
     setOrdersLoading(true);
-    authFetch("http://localhost:8000/my-orders")
+    authFetch(`${API_BASE_URL}/my-orders`)
       .then((res) => res.json())
       .then((data) => setOrders(data))
       .finally(() => setOrdersLoading(false));
@@ -62,7 +63,7 @@ export default function ProfileInfo({ setUser }) {
     setProfile({ ...profile, [e.target.name]: e.target.value });
 
   const handleSave = async () => {
-    await authFetch("http://localhost:8000/profile", {
+    await authFetch(`${API_BASE_URL}/profile`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -85,7 +86,7 @@ export default function ProfileInfo({ setUser }) {
       setPwError("Password must be at least 6 characters");
       return;
     }
-    const res = await authFetch("http://localhost:8000/profile/password", {
+    const res = await authFetch(`${API_BASE_URL}/profile/password`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

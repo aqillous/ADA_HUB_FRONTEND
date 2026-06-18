@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { authFetch } from "../utils/AuthFetch";
+import API_BASE_URL from "../config";
 
 export default function Cart({ cartItems, addToCart, decreaseCart, setCart }) {
   const [status, setStatus] = useState("idle"); // idle | loading | success | error
@@ -19,7 +20,7 @@ export default function Cart({ cartItems, addToCart, decreaseCart, setCart }) {
       items: cartItems.map((i) => ({ product_id: i.id, quantity: i.quantity })),
     };
     try {
-      const res = await authFetch("http://localhost:8000/store/addOrder", {
+      const res = await authFetch(`${API_BASE_URL}/store/addOrder`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),

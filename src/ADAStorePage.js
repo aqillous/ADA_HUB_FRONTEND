@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import PageContainer from "./layouts/PageContainer";
 import ProductCard from "./components/ProductCard";
 import Cart from "./components/Cart";
+import API_BASE_URL from "./config";
 
 export default function ADAStorePage() {
   const [products, setProducts] = useState([]);
@@ -11,7 +12,7 @@ export default function ADAStorePage() {
 
   // Fetch products
   useEffect(() => {
-    fetch("http://localhost:8000/store/products")
+    fetch(`${API_BASE_URL}/store/products`)
       .then((res) => res.json())
       .then(setProducts)
       .catch(console.error);

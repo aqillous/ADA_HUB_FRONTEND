@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import { authFetch } from "../utils/AuthFetch";
 import Placeholder from "../assets/default-placeholder.png";
 import DeleteModal from "../components/DeleteModal";
+import API_BASE_URL from "../config";
 
 export default function VPsPage() {
   const [vps, setVps] = useState([]);
@@ -36,7 +37,7 @@ export default function VPsPage() {
 
   const fetchVPs = () => {
     setLoading(true);
-    fetch("http://localhost:8000/vps")
+    fetch(`${API_BASE_URL}/vps`)
       .then((res) => res.json())
       .then(setVps)
       .catch(console.error)
@@ -62,7 +63,7 @@ export default function VPsPage() {
     if (addForm.image) fd.append("image", addForm.image);
 
     try {
-      await authFetch("http://localhost:8000/admin/vps/add", {
+      await authFetch(`${API_BASE_URL}/admin/vps/add`, {
         method: "POST",
         body: fd,
       });
@@ -103,7 +104,7 @@ export default function VPsPage() {
     if (editForm.image) fd.append("image", editForm.image);
 
     try {
-      await authFetch(`http://localhost:8000/admin/vps/${editForm.id}/edit`, {
+      await authFetch(`${API_BASE_URL}/admin/vps/${editForm.id}/edit`, {
         method: "PATCH",
         body: fd,
       });
@@ -118,7 +119,7 @@ export default function VPsPage() {
 
   // ── DELETE ───────────────────────────────────────────
   const handleDelete = async () => {
-    await authFetch(`http://localhost:8000/admin/vps/${selectedId}`, {
+    await authFetch(`${API_BASE_URL}/admin/vps/${selectedId}`, {
       method: "DELETE",
     });
     setShowDeleteModal(false);

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Card from "./Card";
+import API_BASE_URL from "../config";
 
 export default function News() {
   const [news, setNews] = useState([]);
@@ -8,9 +9,8 @@ export default function News() {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    if (!token) return navigate("/login");
 
-    fetch("http://localhost:8000/allNews", {
+    fetch(`${API_BASE_URL}/allNews`, {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => res.json())

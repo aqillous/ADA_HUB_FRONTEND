@@ -1,5 +1,6 @@
 import AddForm from "../components/AddForm";
 import { authFetch } from "../utils/AuthFetch";
+import API_BASE_URL from "../config";
 
 export default function StoreAddProductPage() {
   const fields = [
@@ -31,13 +32,10 @@ export default function StoreAddProductPage() {
     formData.append("price", values.price);
     formData.append("image", values.image);
 
-    const res = await authFetch(
-      "http://localhost:8000/admin/store/product/add",
-      {
-        method: "POST",
-        body: formData,
-      },
-    );
+    const res = await authFetch(`${API_BASE_URL}/admin/store/product/add`, {
+      method: "POST",
+      body: formData,
+    });
 
     const data = await res.json();
 

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { authFetch } from "./utils/AuthFetch";
+import API_BASE_URL from "./config";
 
 function LoginPage({ setUser }) {
   useEffect(() => {
@@ -20,7 +21,7 @@ function LoginPage({ setUser }) {
 
   const handleLogin = async () => {
     try {
-      const response = await fetch("http://127.0.0.1:8000/login", {
+      const response = await fetch(`${API_BASE_URL}/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -34,7 +35,7 @@ function LoginPage({ setUser }) {
         localStorage.removeItem("token");
         localStorage.setItem("token", data.token);
         localStorage.setItem("refresh_token", data.refresh_token);
-        const meRes = await authFetch("http://127.0.0.1:8000/me");
+        const meRes = await authFetch(`${API_BASE_URL}/me`);
         if (meRes.ok) {
           const userData = await meRes.json();
           setUser(userData);

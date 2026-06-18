@@ -26,6 +26,7 @@ import ADAStorePage from "./ADAStorePage";
 import MyProfile from "./MyProfilePage";
 import { authFetch } from "./utils/AuthFetch";
 import VPsPage from "./admin/VPsPage";
+import API_BASE_URL from "./config";
 
 function MainLayout({ children, user, setUser }) {
   return (
@@ -43,7 +44,7 @@ function App() {
     const token = localStorage.getItem("token");
     if (!token) return;
 
-    authFetch("http://localhost:8000/me")
+    authFetch(`${API_BASE_URL}/me`)
       .then((res) => (res.ok ? res.json() : null))
       .then((data) => setUser(data))
       .catch(() => setUser(null));

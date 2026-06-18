@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import Placeholder from "../assets/default-placeholder.png";
+import API_BASE_URL from "../config";
 
 export default function CurrentVPsSlider() {
   const [vps, setVps] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:8000/vps")
+    fetch(`${API_BASE_URL}/vps`)
       .then((res) => res.json())
       .then((data) => setVps(data))
       .catch(console.error)

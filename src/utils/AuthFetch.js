@@ -1,3 +1,5 @@
+import API_BASE_URL from "../config";
+
 let isRefreshing = false;
 let refreshPromise = null;
 
@@ -6,7 +8,7 @@ export async function refreshAccessToken() {
   if (!refreshToken) return null; // don't logout yet
 
   try {
-    const res = await fetch("http://127.0.0.1:8000/refresh", {
+    const res = await fetch(`${API_BASE_URL}/refresh`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ refresh_token: refreshToken }),

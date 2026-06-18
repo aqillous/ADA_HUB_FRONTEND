@@ -1,5 +1,6 @@
 import { authFetch } from "../utils/AuthFetch";
 import AddForm from "../components/AddForm";
+import API_BASE_URL from "../config";
 
 export default function NewsAddPage() {
   const fields = [
@@ -20,7 +21,7 @@ export default function NewsAddPage() {
   ];
 
   const handleSubmit = async (values) => {
-    const res = await authFetch("http://localhost:8000/admin/news", {
+    const res = await authFetch(`${API_BASE_URL}/admin/news`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(values),

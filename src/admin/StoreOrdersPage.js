@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { authFetch } from "../utils/AuthFetch";
 import DeleteModal from "../components/DeleteModal";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
+import API_BASE_URL from "../config";
 
 export default function StoreOrdersDashboard() {
   const [orders, setOrders] = useState([]);
@@ -29,7 +30,7 @@ export default function StoreOrdersDashboard() {
 
   const fetchOrders = () => {
     setLoading(true);
-    authFetch("http://localhost:8000/admin/store/allOrders")
+    authFetch(`${API_BASE_URL}/admin/store/allOrders`)
       .then((res) => res.json())
       .then((data) => {
         const sorted = data.sort(
@@ -74,14 +75,11 @@ export default function StoreOrdersDashboard() {
 
   const handleStatusChange = async (orderId, newStatus) => {
     try {
-      await authFetch(
-        `http://localhost:8000/admin/store/order/${orderId}/edit`,
-        {
-          method: "PATCH",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ status: newStatus }),
-        },
-      );
+      await authFetch(`${API_BASE_URL}/admin/store/order/${orderId}/edit`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ status: newStatus }),
+      });
       setStatusDropdown({ ...statusDropdown, visible: false });
       fetchOrders();
     } catch (err) {
@@ -91,12 +89,9 @@ export default function StoreOrdersDashboard() {
 
   const handleDelete = async () => {
     try {
-      await authFetch(
-        `http://localhost:8000/admin/store/order/${selectedOrderId}`,
-        {
-          method: "DELETE",
-        },
-      );
+      await authFetch(`${API_BASE_URL}/admin/store/order/${selectedOrderId}`, {
+        method: "DELETE",
+      });
       setOrders((prev) => prev.filter((o) => o.id !== selectedOrderId));
       setShowDeleteModal(false);
       setSelectedOrderId(null);

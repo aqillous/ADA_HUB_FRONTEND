@@ -1,5 +1,6 @@
 import { authFetch } from "../utils/AuthFetch";
 import AddForm from "../components/AddForm";
+import API_BASE_URL from "../config";
 
 export default function UserAddPage() {
   const fields = [
@@ -34,7 +35,7 @@ export default function UserAddPage() {
     }
 
     try {
-      const response = await authFetch("http://127.0.0.1:8000/users/add", {
+      const response = await authFetch(`${API_BASE_URL}/users/add`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

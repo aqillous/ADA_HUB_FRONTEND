@@ -1,12 +1,13 @@
 import AdminListPage from "../components/AdminListPage";
+import API_BASE_URL from "../config";
 
 export default function CalendarListPage() {
   return (
     <AdminListPage
       title="Calendar Events"
-      fetchUrl="http://localhost:8000/allCalendarEvents"
-      deleteUrl="http://localhost:8000/admin/calEvent"
-      editUrl="http://localhost:8000/admin/calEvent"
+      fetchUrl={`${API_BASE_URL}/allCalendarEvents`}
+      deleteUrl={`${API_BASE_URL}/admin/calEvent`}
+      editUrl={`${API_BASE_URL}/admin/calEvent`}
       addLink="/admin/calendar/add"
       // structured fields with input types
       editFields={[

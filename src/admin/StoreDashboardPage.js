@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { authFetch } from "../utils/AuthFetch";
+import API_BASE_URL from "../config";
 import {
   LineChart,
   Line,
@@ -15,7 +16,7 @@ export default function StoreDashboardPage() {
   const [stats, setStats] = useState(null);
 
   useEffect(() => {
-    authFetch("http://localhost:8000/admin/store/dashboard")
+    authFetch(`${API_BASE_URL}/admin/store/dashboard`)
       .then((res) => res.json())
       .then(setStats)
       .catch(console.error);

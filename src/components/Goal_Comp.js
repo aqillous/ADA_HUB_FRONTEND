@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Card from "./Card";
+import API_BASE_URL from "../config";
 
 function GoalComp() {
   const [data, setData] = useState({
@@ -11,7 +12,7 @@ function GoalComp() {
   const goal = 333;
 
   useEffect(() => {
-    fetch("http://localhost:8000/lcData")
+    fetch(`${API_BASE_URL}/lcData`)
       .then((res) => res.json())
       .then(setData)
       .catch(console.log);

@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
+import API_BASE_URL from "../config";
 
 export default function Calendar({ year, month }) {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8000/allCalendarEvents")
+    fetch(`${API_BASE_URL}/allCalendarEvents`)
       .then((res) => res.json())
       .then(setEvents)
       .catch(console.log);

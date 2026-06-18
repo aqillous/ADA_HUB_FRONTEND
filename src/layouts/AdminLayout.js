@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import AdminSideBar from "../components/AdminSideBar";
 import { authFetch, logout } from "../utils/AuthFetch";
+import API_BASE_URL from "../config";
 
 export default function AdminLayout() {
   const [adminData, setAdminData] = useState(null);
@@ -12,7 +13,7 @@ export default function AdminLayout() {
 
     async function fetchAdmin() {
       try {
-        const res = await authFetch("http://localhost:8000/admin");
+        const res = await authFetch(`${API_BASE_URL}/admin`);
 
         if (!res.ok) {
           // Only logout if refresh also failed

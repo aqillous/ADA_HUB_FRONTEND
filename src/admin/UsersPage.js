@@ -4,6 +4,7 @@ import DeleteButton from "../components/DeleteButton";
 import EditButton from "../components/EditButton";
 import DeleteModal from "../components/DeleteModal";
 import { authFetch } from "../utils/AuthFetch";
+import API_BASE_URL from "../config";
 
 export default function UsersPage() {
   const [allUsers, setAllUsers] = useState([]);
@@ -13,14 +14,14 @@ export default function UsersPage() {
   const [selectedUserIsAdmin, setSelectedUserIsAdmin] = useState(null);
 
   useEffect(() => {
-    authFetch("http://localhost:8000/users")
+    authFetch(`${API_BASE_URL}/users`)
       .then((res) => res.json())
       .then(setAllUsers)
       .catch(console.error);
   }, []);
 
   const handleDelete = () => {
-    authFetch(`http://localhost:8000/users/${selectedUserId}`, {
+    authFetch(`${API_BASE_URL}/users/${selectedUserId}`, {
       method: "DELETE",
     })
       .then(() => {
@@ -35,7 +36,7 @@ export default function UsersPage() {
 
   const handleEdit = () => {
     authFetch(
-      `http://localhost:8000/users/${selectedUserId}/admin?is_admin=${!selectedUserIsAdmin}`,
+      `${API_BASE_URL}/users/${selectedUserId}/admin?is_admin=${!selectedUserIsAdmin}`,
       { method: "PATCH" },
     )
       .then(() => {

@@ -1,12 +1,13 @@
 import AdminListPage from "../components/AdminListPage";
+import API_BASE_URL from "../config";
 
 export default function NewsPage() {
   return (
     <AdminListPage
       title="News"
-      fetchUrl="http://localhost:8000/allNews"
-      deleteUrl="http://localhost:8000/admin/news"
-      editUrl="http://localhost:8000/admin/news"
+      fetchUrl={`${API_BASE_URL}/allNews`}
+      deleteUrl={`${API_BASE_URL}/admin/news`}
+      editUrl={`${API_BASE_URL}/admin/news`}
       addLink="/admin/news/add"
       editFields={[
         { name: "news_header", type: "text", label: "Header" },

@@ -1,11 +1,12 @@
 import AdminListPage from "../components/AdminListPage";
+import API_BASE_URL from "../config";
 
 export default function StoreProductsPage() {
   return (
     <AdminListPage
-      fetchUrl="http://localhost:8000/store/products"
-      deleteUrl="http://localhost:8000/admin/store/product"
-      editUrl="http://localhost:8000/admin/store/product"
+      fetchUrl={`${API_BASE_URL}/store/products`}
+      deleteUrl={`${API_BASE_URL}/admin/store/product`}
+      editUrl={`${API_BASE_URL}/admin/store/product`}
       addLink="/admin/store/products/add"
       editFields={[
         { name: "name", type: "text", label: "Product Name" },
