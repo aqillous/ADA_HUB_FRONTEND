@@ -31,7 +31,7 @@ export default function CurrentVPsSlider() {
         <div className="flex gap-6">
           {[1, 2, 3].map((i) => (
             <div key={i} className="flex-1 animate-pulse">
-              <div className="w-full h-[380px] bg-gray-200 rounded-2xl" />
+              <div className="w-full h-[480px] bg-gray-200 rounded-2xl" />
               <div className="mt-3 h-5 bg-gray-200 rounded w-3/4 mx-auto" />
               <div className="mt-2 h-4 bg-gray-100 rounded w-1/2 mx-auto" />
             </div>
@@ -64,7 +64,7 @@ export default function CurrentVPsSlider() {
                 <img
                   src={vp.image_url || Placeholder}
                   alt={vp.name}
-                  className="w-full h-[380px] object-cover rounded-2xl shadow-sm"
+                  className="w-full h-[480px] object-cover object-top rounded-2xl shadow-sm"
                 />
                 <p className="mt-3 text-lg font-bold text-gray-800">
                   {vp.name}
