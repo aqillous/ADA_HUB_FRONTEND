@@ -35,7 +35,9 @@ export default function CurrentVPsSlider() {
 
   return (
     <div className="bg-white rounded-2xl shadow-md p-6">
-      <h2 className="text-2xl font-bold mb-6 text-center">Current VPs</h2>
+      <h2 className="text-2xl font-bold mb-6 text-center">
+        Current EB - EB VALYRIA
+      </h2>
 
       {vps.length === 0 ? (
         <p className="text-center text-gray-500 py-6">No VPs added yet.</p>
@@ -50,17 +52,12 @@ export default function CurrentVPsSlider() {
               className="snap-start flex-shrink-0 text-center"
               style={{ width: "calc(33.333% - 16px)" }}
             >
-              <div
-                className="overflow-y-auto rounded-2xl shadow-sm"
-                style={{ height: "480px" }}
-              >
-                <img
-                  src={vp.image_url || Placeholder}
-                  alt={vp.name}
-                  className="w-full object-cover"
-                  style={{ minHeight: "480px" }}
-                />
-              </div>
+              <img
+                src={vp.image_url || Placeholder}
+                alt={vp.name}
+                className="w-full object-cover object-top rounded-2xl shadow-sm"
+                style={{ aspectRatio: "3/4" }}
+              />
               <p className="mt-3 text-lg font-bold text-gray-800">{vp.name}</p>
               <p className="text-base text-gray-500 mt-1">{vp.position}</p>
             </div>
