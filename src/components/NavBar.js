@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from "react";
 import { logout } from "../utils/AuthFetch";
 
 function NavBar({ user, setUser }) {
+  const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -27,7 +28,8 @@ function NavBar({ user, setUser }) {
         {/* Hamburger for mobile */}
         <button
           className="mr-3 md:hidden flex flex-col gap-1"
-          onClick={() => setDropdownOpen((p) => !p)}
+          onClick={() => setMenuOpen((p) => !p)}
+          aria-label="Toggle menu"
         >
           <span className="block w-5 h-0.5 bg-white"></span>
           <span className="block w-5 h-0.5 bg-white"></span>
@@ -122,40 +124,40 @@ function NavBar({ user, setUser }) {
         </div>
       </div>
 
-      {/* Mobile menu */}
-      {dropdownOpen && (
-        <div className="md:hidden bg-blue-600 px-4 py-3 flex flex-col gap-2">
+      {/* Mobile menu — same bg-blue-500 as navbar */}
+      {menuOpen && (
+        <div className="md:hidden bg-blue-500 border-t border-blue-400 px-4 py-3 flex flex-col gap-2">
           <Link
             to="/"
-            onClick={() => setDropdownOpen(false)}
+            onClick={() => setMenuOpen(false)}
             className="py-1 hover:underline"
           >
             Home
           </Link>
           <Link
             to="/ada-store"
-            onClick={() => setDropdownOpen(false)}
+            onClick={() => setMenuOpen(false)}
             className="py-1 hover:underline"
           >
             ADA Store
           </Link>
           <Link
             to="/materials"
-            onClick={() => setDropdownOpen(false)}
+            onClick={() => setMenuOpen(false)}
             className="py-1 hover:underline"
           >
             Materials
           </Link>
           <Link
             to="/ada-history"
-            onClick={() => setDropdownOpen(false)}
+            onClick={() => setMenuOpen(false)}
             className="py-1 hover:underline"
           >
             ADA History
           </Link>
           <Link
             to="/alumni-hub"
-            onClick={() => setDropdownOpen(false)}
+            onClick={() => setMenuOpen(false)}
             className="py-1 hover:underline"
           >
             Alumni Hub
