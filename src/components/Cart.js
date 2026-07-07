@@ -305,7 +305,7 @@ export default function Cart({
                       {item.name}
                     </p>
                     <p className="text-sm text-gray-400 mt-0.5">
-                      ${item.price} each
+                      ₼ {item.price} each
                     </p>
                     <div className="flex items-center gap-2 mt-2">
                       <button
@@ -348,7 +348,7 @@ export default function Cart({
 
                   {/* Line total */}
                   <p className="font-semibold text-sm text-gray-900 shrink-0">
-                    ${item.price * item.quantity}
+                    {item.price * item.quantity} ₼
                   </p>
                 </div>
               );
@@ -363,7 +363,7 @@ export default function Cart({
           <div className="flex items-center justify-between mb-4">
             <span className="text-sm text-gray-500">Total</span>
             <span className="text-xl font-bold text-gray-900">
-              ${totalPrice}
+              {totalPrice} ₼
             </span>
           </div>
           <button
