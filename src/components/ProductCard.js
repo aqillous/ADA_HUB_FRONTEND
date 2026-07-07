@@ -24,7 +24,7 @@ export default function ProductCard({
 
         {/* PRICE */}
         <div className="mt-1 text-gray-900 font-thin text-lg">
-          ${product.price}
+          ₼{product.price}
         </div>
 
         {/* ACTION AREA */}
