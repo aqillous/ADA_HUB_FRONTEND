@@ -36,7 +36,9 @@ export default function CurrentVPsSlider() {
 
   return (
     <div className="bg-white rounded-2xl shadow-md p-6">
-      <h2 className="text-2xl font-bold mb-6 text-center">Current VPs</h2>
+      <h2 className="text-2xl font-bold mb-6 text-center">
+        Current EB - EB Valyria
+      </h2>
 
       {vps.length === 0 ? (
         <p className="text-center text-gray-500 py-6">No VPs added yet.</p>
