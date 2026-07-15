@@ -329,7 +329,7 @@ export default function HomePage() {
     <PageContainer>
       <GoalComp />
 
-      <div className="flex flex-col lg:flex-row">
+      <div className="flex flex-col lg:flex-row gap-6">
         <TimeLine />
         <News />
       </div>

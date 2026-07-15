@@ -27,12 +27,14 @@ import MyProfile from "./MyProfilePage";
 import { authFetch } from "./utils/AuthFetch";
 import VPsPage from "./admin/VPsPage";
 import API_BASE_URL from "./config";
+import Footer from "./components/Footer";
 
 function MainLayout({ children, user, setUser }) {
   return (
     <>
       <NavBar user={user} setUser={setUser} />
       <div>{children}</div>
+      <Footer />
     </>
   );
 }
