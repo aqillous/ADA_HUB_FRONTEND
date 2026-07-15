@@ -79,7 +79,7 @@ export default function Footer() {
               className="flex items-center gap-2 hover:text-[#F7F4F0] transition-colors"
             >
               <FaEnvelope className="text-[#5B85C0]" />
-              info@aiesec-ada.org
+              lc.bakuada@aiesec.net
             </a>
             <a
               href="https://instagram.com"
@@ -88,7 +88,7 @@ export default function Footer() {
               className="flex items-center gap-2 hover:text-[#F7F4F0] transition-colors"
             >
               <FaInstagram className="text-[#5B85C0]" />
-              @aiesec.ada
+              @lcbakuada
             </a>
             <span className="flex items-center gap-2">
               <FaMapMarkerAlt className="text-[#5B85C0]" />
