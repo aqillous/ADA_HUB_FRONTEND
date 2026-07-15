@@ -93,7 +93,7 @@ export default function CurrentVPsSlider() {
             mt-1
           "
           >
-            EB Valyria
+            EB VALYRIA
           </h2>
         </div>
 
