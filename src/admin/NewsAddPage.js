@@ -11,11 +11,20 @@ export default function NewsAddPage() {
       placeholder: "Enter header",
       required: true,
     },
+
+    {
+      name: "news_short",
+      label: "Short Description",
+      type: "textarea",
+      placeholder: "Short preview shown in cards",
+      required: true,
+    },
+
     {
       name: "news_content",
-      label: "News Content",
+      label: "Full Content",
       type: "textarea",
-      placeholder: "Enter content",
+      placeholder: "Enter full article content",
       required: true,
     },
   ];

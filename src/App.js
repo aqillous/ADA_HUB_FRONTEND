@@ -32,7 +32,7 @@ function MainLayout({ children, user, setUser }) {
   return (
     <>
       <NavBar user={user} setUser={setUser} />
-      <div className="mt-2">{children}</div>
+      <div>{children}</div>
     </>
   );
 }
